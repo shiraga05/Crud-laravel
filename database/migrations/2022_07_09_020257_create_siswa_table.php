@@ -17,6 +17,12 @@ class CreateSiswaTable extends Migration
             $table->id();
             $table->string('nama',100);
             $table->longText('alamat');
+            $table->string('nis');
+            $table->string('ttl');
+            $table->string('nohp');
+            $table->string('email');
+            $table->string('jabatan');
+
             $table->softDeletes();
             $table->timestamps();
         });

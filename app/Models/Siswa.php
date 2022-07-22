@@ -10,7 +10,10 @@ class Siswa extends Model
     use softDeletes;
 
     protected $table ='siswa';
-    protected $fillable=['nama','alamat'];
+    protected $fillable=['nama','alamat','nis','ttl','nohp','email',];
 
     protected $hidden;
+    
+
+    
 }

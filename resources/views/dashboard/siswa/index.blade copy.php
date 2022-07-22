@@ -13,8 +13,8 @@
      <div class="container mt-5 ">
          <div  div class="row">
             <div class="col-lg">      
-            <h2 style="text-align: center;color:rgb(30, 134, 225);" class="mb-3 ">Nama Siswa Yang Sudah Terdaftar</h2>
-            
+            <h2 style="text-align: center;color:rgb(30, 134, 225);" class="mb-3 ">Nama Siswa </h2>
+            <a href="/guru/create" class="btn btn-outline-primary mt-4 mb-3 "><i class="bi bi-plus-circle-fill "></i> Tambah Siswa </a>
             </div>
             <div class="table-responsive p-3  ">
             <table class="table-bordered border-primary display py-3" id="tableSiswa" >
@@ -23,7 +23,13 @@
                    <th scope="col" style="width:50px;">No</th>
                    <th scope="col">Nama</th>
                    <th scope="col">Alamat</th>
-                   <th scope="col" style="width: 190px;">Action</th>
+                   <th scope="col">NIS</th>
+                   <th scope="col">TTL</th>
+                   <th scope="col">No.Hp</th>
+                   <th scope="col">Email</th>
+                   <th scope="col">Jabatan</th>
+                   <th scope="col">Action</th>
+                  
                  </tr>
                </thead>
                <tbody>
@@ -33,22 +39,40 @@
                   <td>{{ $i++ }}</td>
                   <td>{{ $data->nama  }}</td>
                   <td>{{ $data->alamat  }}</td>
-                  <td >
-                    <div class="btn-group me-4 mb-2">
-                      <a href="{{url('/show/'.$data->id)}}" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></a>
-                      <a href="{{url('/show/'.$data->id)}}" class="btn btn-outline-warning  btn-sm ">Edit</a>
-                    </div>
+                  <td>{{$data->nis}}</td>
+                  <td>{{$data->ttl}}</td>
+                  <td>
                     <div class="btn-group">
-                      <a href="{{url('/destroy/'.$data->id)}}" class="btn btn-danger"><i class="bi bi-trash3"></i></a>
-                      <a href="{{url('/destroy/'.$data->id)}}" class="btn btn-outline-danger ">Hapus</a>
+                      <a class="btn btn-success " href="http://wa.me/{{$data->nohp}}" target="_blank" role="button" ><i class="bi bi-whatsapp">
+                        </i></a>
+                       <a href="http://wa.me/" class="btn btn-outline-success">{{$data->nohp}}</a>
                     </div>
+                
+                     
+                  
+                   
+                
+                  </td>
+                  <td>{{$data->email}}</td>
+                  <td>{{$data->jabatan}}</td>
+               
+                <td>
+                  <div class="btn-group mb-2 me-2">
+                      <a href="guru/show/{{$data->id}}" class="btn btn-warning"><i class="bi bi-pencil"></i></a>
+                      <a href="guru/show/{{$data->id}}" class="btn btn-outline-warning">Edit</a>
+                  </div>
+                  <div class="btn-group mb-2">
+                      <a href="guru/destroy/{{$data->id}}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                      <a href="guru/destroy/{{$data->id}}" class="btn btn-outline-danger">Hapus</a>
+                  </div>
                 </td>
+  
                   
                 </tr>
                 @endforeach
                </tbody>
             </table>
-            <a href="{{url('create')}}" class="btn btn-outline-primary mt-4 mb-3 "><i class="bi bi-plus-circle-fill "></i> Tambah Siswa </a>
+           
           </div>
            
         </div>
